@@ -36,6 +36,20 @@ serverless login
 
 **Note: In case on of the commands present error, please execute it again under admin permissions.**
 
+The way to execute the Docker image of the program is the following:
+- Linux/Mac:
+```
+docker run --rm -it -v $(pwd):/project falvaradoe/klambda -h
+```
+- Windows:
+```
+docker run --rm -it -v %cd%:/project falvaradoe/klambda -h
+```
+- PowerShell:
+```
+docker run --rm -it -v ${PWD}:/project falvaradoe/klambda -h
+```
+Please use the format properly according to your Operating System.
 
 ## 3. How to use it
 1. Create a folder where you want to storage a new project and navigate to it on the terminal.
@@ -46,7 +60,7 @@ serverless login
 ```
 docker run --rm -it -v $(pwd):/project falvaradoe/klambda --h
 ```
-**This will download the image locally.** 
+This command will download the Docker image locally.
 4. The common way to use the different features of the tool is this:
 ```
 klambda [module||command] [command||parameters] [parameters]
