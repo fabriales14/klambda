@@ -264,8 +264,8 @@ class LambdaModule(base_module.BaseModule):
         DELETE = cli_command.CLICommand(self.delete_lambdas, 
             "deletes the configuration of one or more functions listed on the klambda file to DynamoDB for posterior deployments")
         super(LambdaModule,self).register("delete", DELETE)
-        INFO = cli_command.CLICommand(self.info_lambdas, 
+        """INFO = cli_command.CLICommand(self.info_lambdas, 
             "shows the repository information of one or more functions listed on the klambda file")
-        super(LambdaModule,self).register("info", INFO)
+        super(LambdaModule,self).register("info", INFO)"""
 
 

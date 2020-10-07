@@ -2,57 +2,53 @@
 
 ## 1. Description
 
-Klambda is Command-line tool that connects to AWS services and perform a series of steps that 
-manage the storage and authorization of users in order to create backend projects effectively,
-having a library of Lambda functions that are reusable on different projects and teams.
-All of this is setted up through a specification file, that its content will be processed, 
-thus generating team projects, Lambda functions within their configuration. 
+Klambda is Command-line tool that connects to AWS services and perform a series of steps that manage the storage and authorization of users in order to create backend projects effectively and having a library of Lambda functions that are reusable on different projects and teams.All of this is setted up through a specification file, that its content will be processed, thus generating team projects, Lambda functions within their configuration. 
 
 ## 2. Steps to configure
 In order to use the program, it's important to follo the next:
 
-- Sign In on [Serverless](https://www.serverless.com/) and install it on your [computer](https://www.serverless.com/framework/docs/getting-started/).
+- Create an account on [Serverless](https://www.serverless.com/) and install it on your computer with some of the following commands:
+    - Linux/Mac:
+    ```
+    curl -o- -L https://slss.io/install | bash 
+    ```
+    - Windows (using choco package manager):
+    ```
+    choco install serverless
+    ```
+    - With npm:
+    ```
+    npm install -g serverless
+    ```
 
-- Sign In into [AWS Console](https://aws.amazon.com/).
-**Notes:**
-Make sure you are locally logged into your AWS account, if not, please follow the next steps:
-## Setup your AWS Credentials
-Go to IAM -> Select your user -> Security Credentials -> Create Access Key
-Copy your api key
-Copy your secret
+- Login into Serverless Framework locally with the next command:
 ```
-sls config credentials --provider aws --key <YOUR KEY> --secret <YOUR SECRET>
+serverless login
 ```
-To configure as your default profile use
-```
-sls config credentials --provider aws --key <YOUR KEY> --secret <YOUR SECRET> --profile default -o
-```
-Reference [here](https://serverless.com/framework/docs/providers/aws/cli-reference/config-credentials/).
+**This command will open your default browser, please indicate your credentials, it will redirect to the terminal and it will recognize your credentials.**
 
-- Make sure you have the last [Python](https://www.python.org/downloads/) and [pip](https://pypi.org/project/pip/#files) installed on your machine, verify that these tools are executable from the terminal.
+- Create an account on [AWS](https://aws.amazon.com/), then follow the instructions of the next [video](https://www.youtube.com/watch?v=KngM5bfpttA)
 
-- Clone the repository from [here](https://gitlab.com/fabriales14/klambda).
 
-- From the terminal navigate to the folder containing the project.
+- Install Docker Desktop:
+[mac](https://docs.docker.com/docker-for-mac/install/)
+[windows](https://docs.docker.com/docker-for-windows/install/)
 
-- Exexute the following command on the root folder of the project:
-```
-python setup.py install
-```
+**Note: In case on of the commands present error, please execute it again under admin permissions.**
+
 
 ## 3. How to use it
-1. Create a folder where you want to storage a new project and navigate to it from the terminal.
+1. Create a folder where you want to storage a new project and navigate to it on the terminal.
 
 2. Create the klambda.yml and user.yml files.
 
 3. To execute the program and view the help menu, run the next command:
 ```
-klambda -h
+docker run --rm -it -v $(pwd):/project falvaradoe/klambda --h
 ```
-
+**This will download the image locally.** 
 4. The common way to use the different features of the tool is this:
 ```
 klambda [module||command] [command||parameters] [parameters]
 ```
-Remember that the specification and user credentials files are necessary to execute the 
-commands available in the tool.
+**Remember that the specification and user credentials files are necessary to execute the  commands available in the tool.**
