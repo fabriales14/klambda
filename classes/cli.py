@@ -29,7 +29,7 @@ class CLI():
         :raises ValueError: if the message_body exceeds 160 characters
         :raises TypeError: if the message_body is not a basestring
         '''
-        self.modules['lambda'] = lambda_module.LambdaModule('Lambda', 'creation of lambda functions in Klambda Library', self.reader)
+        self.modules['lambda'] = lambda_module.LambdaModule('Lambda', 'creation of lambda functions in the Klambda library', self.reader)
         self.modules['project'] = project_module.ProjectModule('Project', 'creation of Klambda projects', self.reader)
 
     def register_arguments(self):
