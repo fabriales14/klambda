@@ -87,7 +87,6 @@ class CognitoClient():
             logger.error(err)
             exit()
         else:
-            #logger.info("%s successfully identified" % pUsername)
             return response
 
 

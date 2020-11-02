@@ -7,7 +7,6 @@ ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..'))
 def main():
     logger.config_logs(ROOT_DIR)
     processor = file_processor.FileProcessor(os.getcwd()+'/klambda.yml') # instance for opening klambda.yml
-    credentials = file_processor.FileProcessor(os.getcwd()+'/user.yml')
     cli_tool = cli.CLI(processor) # instance of CLI Tool
     client = cognito_client.CognitoClient()
     args = cli_tool.parser.parse_args() # reads the arguments written by the user
@@ -17,6 +16,7 @@ def main():
             client.sign_up(klambda_config.KlambdaConfig.COGNITO_APP_CLIENT, user)
         exit()
     elif args.command:
+        credentials = file_processor.FileProcessor(os.getcwd()+'/user.yml')
         client.initiate_auth(klambda_config.KlambdaConfig.COGNITO_APP_CLIENT, 
                         credentials.data['USERNAME'], 
                         str(credentials.data['PASSWORD'])) # authenticate user
